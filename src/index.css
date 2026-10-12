@@ -6,7 +6,8 @@
 }
 
 @theme {
-  --color-primary: #050505;
+  --color-primary: #c90012;
+  --color-secondary: #ff252b;
 }
 ::-webkit-scrollbar {
   display: none;
