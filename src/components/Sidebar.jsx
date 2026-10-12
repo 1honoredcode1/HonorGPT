@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { useAppContext } from "../context/appContext";
+
+import { useAppContext } from "../context/useAppContext.js";
+
 import { assets } from "../assets/assets.js";
 
 const Sidebar = () => {
-  const { chats, seSelectedChat, theme, setTheme, user } = useAppContext();
+  const { chats, theme } = useAppContext();
   const [search, setSearch] = useState("");
 
   return (

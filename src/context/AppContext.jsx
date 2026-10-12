@@ -1,36 +1,27 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { dummyChats, dummyUserData } from "../assets/assets.js";
-
-const AppContext = createContext();
+import { AppContext } from "./AppContextValue.js";
 
 export const AppContextProvider = ({ children }) => {
   const navigate = useNavigate();
-  const [user, setUser] = useState(null);
-  const [chats, setChats] = useState([]);
-  const [selectedChat, setSelectedChat] = useState(null);
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
-
-  const fetchUser = async () => {
-    setUser(dummyUserData);
-  };
-
-  const fetchUserChats = async () => {
-    setChats(dummyChats);
-    setSelectedChat(dummyChats[0]);
-  };
-
-  useEffect(() => {
-    if (user) {
-      fetchUserChats();
-    } else {
-      setChats([]);
-      setSelectedChat(null);
+  const [user, setUser] = useState(dummyUserData);
+  const [chats, setChats] = useState(dummyChats);
+  const [selectedChat, setSelectedChat] = useState(dummyChats[0] || null);
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === "undefined") {
+      return "light";
     }
-  }, [user]);
+
+    return localStorage.getItem("theme") || "light";
+  });
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("theme", theme);
+    }
+
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
@@ -38,22 +29,19 @@ export const AppContextProvider = ({ children }) => {
     }
   }, [theme]);
 
-  useEffect(() => {
-    fetchUser();
-  }, []);
-
   const value = {
     user,
     setUser,
-    fetchUser,
     chats,
     setChats,
     selectedChat,
     setSelectedChat,
     theme,
+    setTheme,
     navigate,
   };
+
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
 
-export const useAppContext = () => useContext(AppContext);
+export default AppContextProvider;
