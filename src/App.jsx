@@ -22,8 +22,8 @@ const App = () => {
           onClick={() => setIsMenuOpen(true)}
         />
       )}
-      <div className="dark:bg-linear-gradient-to-b from-primary to-[#000000] dark:text-white">
-        <div className="flex h-screen w-screen">
+      <div className="min-h-screen w-screen bg-white text-gray-900 transition-colors dark:bg-linear-to-l dark:from-red-900 dark:to-black dark:text-white">
+        <div className="flex min-h-screen w-screen">
           <Sidebar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
           <Routes>
             <Route path="/" element={<ChatBox />} />

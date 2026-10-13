@@ -247,14 +247,15 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
           />
 
           <div
-            className="w-9 h-5 bg-gray-500 rounded-full
-              peer-checked:bg-primary transition-all"
+            className="relative w-9 h-5 bg-gray-500 rounded-full
+      peer-checked:bg-primary
+      peer-checked:[&>span]:translate-x-4
+      transition-colors"
           >
             <span
               className="absolute left-1 top-1
                 w-3 h-3 bg-white rounded-full
-                transition-transform
-                peer-checked:translate-x-4"
+                transition-transform"
             />
           </div>
         </label>
