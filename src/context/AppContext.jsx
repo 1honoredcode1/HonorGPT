@@ -11,10 +11,10 @@ export const AppContextProvider = ({ children }) => {
   const [selectedChat, setSelectedChat] = useState(dummyChats[0] || null);
   const [theme, setTheme] = useState(() => {
     if (typeof window === "undefined") {
-      return "light";
+      return "dark";
     }
 
-    return localStorage.getItem("theme") || "light";
+    return localStorage.getItem("theme") || "dark";
   });
 
   useEffect(() => {
