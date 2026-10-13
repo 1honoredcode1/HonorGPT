@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { useAppContext } from "../context/appContext.jsx";
+import { useAppContext } from "../context/AppContext.jsx";
 
 const ChatBox = () => {
   const { selectedChat } = useAppContext();
