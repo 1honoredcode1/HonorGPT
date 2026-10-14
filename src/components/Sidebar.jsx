@@ -60,7 +60,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
     <div
       className={`fixed top-0 left-0 h-screen w-72
     flex flex-col p-5
-    bg-white dark:bg-linear-to-b
+    bg-white dark:bg-linear-to-r
     dark:from-[#242124] dark:to-[#000000]
     border-r border-[#80609F]/30
     backdrop-blur-3xl

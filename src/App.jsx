@@ -23,7 +23,7 @@ const App = () => {
           onClick={() => setIsMenuOpen(true)}
         />
       )}
-      <div className="min-h-screen w-screen bg-white text-gray-900 transition-colors dark:bg-linear-to-l dark:from-red-900 dark:to-black dark:text-white">
+      <div className="min-h-screen w-screen bg-white text-gray-900 transition-colors dark:bg-linear-to-r dark:from-[#242124] dark:to-[#000000] dark:text-white">
         <div
           className="md:ml-72 min-w-0 min-h-screen
           flex flex-col"
