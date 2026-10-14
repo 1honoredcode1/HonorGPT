@@ -58,13 +58,14 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
 
   return (
     <div
-      className={`flex flex-col h-screen min-w-72 p-5
-        dark:bg-linear-to-b dark:from-[#242124]
-        dark:to-[#000000]/30
-        border-r border-[#80609F]/30
-        backdrop-blur-3xl transition-all duration-500
-        max-md:absolute left-0 z-10
-        ${!isMenuOpen ? "max-md:-translate-x-full" : "max-md:translate-x-0"}`}
+      className={`fixed top-0 left-0 h-screen w-72
+    flex flex-col p-5
+    bg-white dark:bg-linear-to-b
+    dark:from-[#242124] dark:to-[#000000]
+    border-r border-[#80609F]/30
+    backdrop-blur-3xl
+    transition-transform duration-500 z-50
+    ${!isMenuOpen ? "max-md:-translate-x-full" : "max-md:translate-x-0"}`}
     >
       {/* Logo */}
       <img
