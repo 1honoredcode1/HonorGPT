@@ -1,3 +1,7 @@
+import { useEffect } from "react";
+
+import Prism from "prismjs";
+
 import Markdown from "react-markdown";
 
 import { assets } from "../assets/assets.js";
@@ -5,6 +9,10 @@ import { assets } from "../assets/assets.js";
 import moment from "moment";
 
 const Message = ({ message }) => {
+  useEffect(() => {
+    Prism.highlightAll();
+  }, [message.content]);
+
   return (
     <div>
       {message.role === "user" ? (
